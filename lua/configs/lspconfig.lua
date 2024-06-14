@@ -1,4 +1,4 @@
--- EXAMPLE 
+-- EXAMPLE
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
@@ -21,3 +21,30 @@ lspconfig.tsserver.setup {
   on_init = on_init,
   capabilities = capabilities,
 }
+
+-- rust
+lspconfig.rust_analyzer.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  -- settings = {
+  --   ["rust-analyzer"] = {
+  --     diagnostics = {
+  --       enable = true,
+  --     },
+  --     procMacro = {
+  --       enable = true,
+  --     },
+  --     inlayHints = {
+  --       enable = true,
+  --       showParameterNames = true,
+  --       parameterHintsPrefix = "<- ",
+  --       otherHintsPrefix = "=> ",
+  --     },
+  --   },
+  -- },
+}
+
+-- vim.diagnostic.config({
+--     virtual_text = true
+-- })
