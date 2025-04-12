@@ -37,7 +37,11 @@ dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
 require "nvchad.autocmds"
+require "configs.etc"
+require "configs.neovide"
+require "configs.telescope"
 
 vim.schedule(function()
   require "mappings"
+  require "autocmds"
 end)

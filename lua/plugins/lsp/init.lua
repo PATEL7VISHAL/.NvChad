@@ -8,17 +8,23 @@ return {
     end,
   },
   --
-  -- {
-  -- 	"williamboman/mason.nvim",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"lua-language-server", "stylua",
-  -- 			"html-lsp", "css-lsp" , "prettier"
-  -- 		},
-  -- 	},
-  -- },
-  --
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "lua-language-server",
+        "stylua",
+        "html-lsp",
+        "css-lsp",
+        "prettier",
+        -- "ts_ls",
+        "vtsls",
+        "prettierd",
+      },
+    },
+  },
 
-  require "plugins.lsp.typescript",
+  -- require "plugins.lsp.typescript",
   require "plugins.lsp.neodev",
+  -- require "plugins.lsp.rust",
 }

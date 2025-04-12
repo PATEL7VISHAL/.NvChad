@@ -1,7 +1,21 @@
 return {
   "pmizio/typescript-tools.nvim",
   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-  opt = {}
+  event = "UIEnter",
+  opt = {
+    on_attach = function()
+      return require("nvchad.configs.lspconfig").on_attach
+    end,
+    on_init = function()
+      return require("nvchad.configs.lspconfig").on_init
+    end,
+    capabilities = function()
+      return require("nvchad.configs.lspconfig").capabilities
+    end,
+  },
+  -- config = function()
+  --   require("typescript-tools").setup {}
+  -- end,
   -- enabled = false,
   -- opts = {
   --   settings = {
