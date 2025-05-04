@@ -1,5 +1,5 @@
-vim.g.loaded_node_provider = 0
-vim.opt.syntax = "off"
+-- vim.g.loaded_node_provider = 0 -- already disabled from the nvchad
+-- vim.opt.syntax = "off"
 -- vim.o.foldenable = false
 vim.o.spell = false
 vim.lsp.set_log_level "OFF"

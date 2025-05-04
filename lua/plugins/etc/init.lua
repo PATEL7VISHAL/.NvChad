@@ -14,6 +14,7 @@ return {
     },
     keys = {
       { "<leader>ws", "<cmd>SessionSave<CR>", desc = "Save session for auto-session" },
+      { "<leader>wf", "<cmd>SessionSearch<CR>", desc = "Save session for auto-session" },
     },
   },
 }

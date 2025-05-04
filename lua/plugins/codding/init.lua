@@ -7,6 +7,7 @@ return {
     opts = {},
     -- stylua: ignore
     keys = {
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
       { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
       { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
       { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
@@ -17,7 +18,8 @@ return {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "make",
     config = function()
-      require("telescope").setup {
+      local telescope = require "telescope"
+      telescope.setup {
         extensions = {
           fzf = {
             fuzzy = true, -- true for fuzzy matching
@@ -28,25 +30,15 @@ return {
         },
       }
       -- Load the extension
-      require("telescope").load_extension "fzf"
+      telescope.load_extension "fzf"
     end,
   },
   {
     "folke/todo-comments.nvim",
     event = "BufEnter",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {},
-    config = function()
-      require("todo-comments").setup()
-      local todo_comments = require "todo-comments"
-      local map = vim.keymap.set
-      map("n", "]t", function()
-        todo_comments.jump_next()
-      end, { desc = "Next todo comment" })
-      map("n", "[t", function()
-        todo_comments.jump_prev()
-      end, { desc = "Previous todo comment" })
-    end,
+    opts = require("configs.todo-comments").opts,
+    config = require("configs.todo-comments").config,
   },
 
   -- Flash Telescope config

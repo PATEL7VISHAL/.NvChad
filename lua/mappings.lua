@@ -7,6 +7,10 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 map("n", "<leader>e", ":NvimTreeToggle<CR>")
 map("n", "<C-S-e>", ":NvimTreeFocus<CR>")
+map("n", "m", ":mark ", { desc = "Mark" })
+map("n", "<C-d>", "<C-d>zz", { desc = "half window down with window center" })
+map("n", "<C-u>", "<C-u>zz", { desc = "half window up with window center" })
+map("x", "<leader>p", '"_dP', { desc = "persist past" })
 
 map("n", "<S-l>", function()
   require("nvchad.tabufline").next()
@@ -34,6 +38,9 @@ map("t", "jk", "<C-\\><C-n>", { desc = "Switch to Normal mode from Termianl" })
 map("n", "<leader>df", vim.diagnostic.open_float, { desc = "Open Diagnostics in floating window" })
 
 -- lsp
+map("n", "K", function() -- lsp hover
+  vim.lsp.buf.hover { border = "rounded" }
+end, { desc = "Lsp hover" })
 map("n", "<leader>lr", require "nvchad.lsp.renamer", { desc = "NvRenamer" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Lsp Code Action" })
 
@@ -71,3 +78,9 @@ map("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "telescope gre
 
 -- config
 map("n", "<leader>rr", ":luafile %<CR>", { desc = "Reload current config file" })
+
+-- git
+map("n", "]h", "<cmd>Gitsigns next_hunk<cr>", { desc = "Next Git Hunk" })
+map("n", "[h", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Previous Git Hunk" })
+-- map("n", "<leader>gd", "<cmd>Gitsigns diffthis<cr>", { desc = "Git Diff view for current buffer" })
+-- map("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Git Diff view for current buffer" })

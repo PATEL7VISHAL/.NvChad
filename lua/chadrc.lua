@@ -3,7 +3,6 @@
 
 ---@type ChadrcConfig
 local M = {}
-vim.opt.shell = "/usr/bin/fish"
 
 M.term = {
   float = {
@@ -33,32 +32,59 @@ M.ui = {
 }
 
 M.base46 = {
-  -- theme = "monokai", // custom theme
   theme = "gruvbox",
 
-  integrations = { "semantic_tokens" },
+  integrations = { "semantic_tokens", "todo" },
   hl_override = {
     Tabline = { bold = true },
     -- Tabline = { bold = true },
     Normal = {
       bg = { "darker_black", 0 },
     },
+    LspInlayHint = { link = "Comment" },
 
-    -- ["@keyword.import"] = { link = "Include" },
-    -- ["@keyword.import"] = { link = "@keyword" },
     ["@variable.member"] = { link = "@variable" },
     ["@property"] = { link = "@variable" },
     ["@variable.parameter"] = { link = "@variable.builtin" },
+    ["@punctuation.bracket"] = { -- works well with grovebox
+      fg = "base0F", -- "base0A"
+    },
 
+    DiffAdd = { fg = "NONE" },
+    DiffDelete = { fg = "NONE" },
+    -- DiffChange = { fg = "NONE" },
+    -- DiffChangeDelete = { fg = "NONE", bg = "red" },
+
+    -- ["@keyword.import"] = { link = "Include" },
+    -- ["@keyword.import"] = { link = "@keyword" },
     -- ["@lsp.mod.unused"] = { italic = true, fg = "#666666" },
     -- ["@lsp.typemod.variable.unused"] = { italic = true, fg = "#666666" },
+
+    -- LspReferenceText = { underline = false, bg = "base01" },
+    -- LspReferenceRead = { underline = false, bg = "base01" },
+    -- LspReferenceWrite = { underline = false, bg = "base01" },
   },
   transparency = false,
 
   hl_add = {
     WinBar = { bg = "NONE" },
     WinBarNC = { bg = "NONE" },
+    -- Illuminate
+    IlluminatedWordRead = { underline = false, bg = "base01" },
+    IlluminatedWordText = { underline = false, bg = "base01" },
+    IlluminatedWordWrite = { underline = false, bg = "base01" },
+
+    ["@lsp.type.formatSpecifier"] = { link = "@punctuation.bracket" },
+
+    -- Diffview.nvim
+    DiffviewFilePanelSelected = { fg = "sun", bold = true },
+    -- DiffviewDiffAdd = { fg = "NONE", bg = "NONE" },
+    -- DiffviewDiffAdd = { bg = "" },
   },
+}
+
+M.nvdash = {
+  load_on_startup = true,
 }
 
 return M

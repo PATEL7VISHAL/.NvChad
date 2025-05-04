@@ -3,7 +3,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
     end,
   },
@@ -17,14 +16,14 @@ return {
         "html-lsp",
         "css-lsp",
         "prettier",
-        -- "ts_ls",
+        "ts_ls",
         "vtsls",
         "prettierd",
       },
     },
   },
 
-  -- require "plugins.lsp.typescript",
+  -- require "plugins.lsp.typescript", -- not seems much improvement.
   require "plugins.lsp.neodev",
   -- require "plugins.lsp.rust",
 }
