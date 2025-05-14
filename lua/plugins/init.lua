@@ -46,6 +46,6 @@ return {
   require "plugins.lsp",
   require "plugins.codding",
   require "plugins.editor",
-  require "plugins.ui", --has an issue
+  require "plugins.ui",
   require "plugins.etc",
 }

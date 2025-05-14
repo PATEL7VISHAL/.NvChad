@@ -8,8 +8,8 @@ map("i", "jk", "<ESC>")
 map("n", "<leader>e", ":NvimTreeToggle<CR>")
 map("n", "<C-S-e>", ":NvimTreeFocus<CR>")
 map("n", "m", ":mark ", { desc = "Mark" })
-map("n", "<C-d>", "<C-d>zz", { desc = "half window down with window center" })
-map("n", "<C-u>", "<C-u>zz", { desc = "half window up with window center" })
+-- map("n", "<C-d>", "<C-d>zz", { desc = "half window down with window center" })
+-- map("n", "<C-u>", "<C-u>zz", { desc = "half window up with window center" })
 map("x", "<leader>p", '"_dP', { desc = "persist past" })
 
 map("n", "<S-l>", function()
@@ -33,6 +33,7 @@ end, { desc = "Toggle Inlay Hint" })
 
 -- terminal
 map("t", "jk", "<C-\\><C-n>", { desc = "Switch to Normal mode from Termianl" })
+map("t", "<C-l>", "<Right>", { desc = "Shortcut for right arrow key for completion in terminal" })
 
 -- diagnostics
 map("n", "<leader>df", vim.diagnostic.open_float, { desc = "Open Diagnostics in floating window" })

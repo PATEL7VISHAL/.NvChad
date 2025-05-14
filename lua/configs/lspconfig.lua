@@ -206,7 +206,6 @@ lspconfig.rust_analyzer.setup {
         attributes = {
           enable = true,
         },
-        ignored = {},
       },
       lru = {
         capacity = 256,

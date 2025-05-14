@@ -17,6 +17,31 @@ return {
     end,
     -- enabled = false,
   },
+
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = function(_, opts)
+      opts.pickers = {
+        find_files = {
+          previewer = false, -- I just added for me
+          -- hidden = true, -- To show hiddne files
+          -- no_ignore = true, -- To show gitignored files
+          -- no_ignore_parent = true,
+
+          -- file_ignore_patterns = { -- Your custom paths to ignore
+          --   "node_modules",
+          --   "build/",
+          --   "%.lock",
+          --   "dist/",
+          --   "%.git/",
+          --   "%.next/",
+          -- },
+        },
+      }
+      return opts
+    end,
+  },
+
   {
     "nvim-tree/nvim-tree.lua",
     opts = function(_, opts)
@@ -29,25 +54,26 @@ return {
       return opts
     end,
   },
-  {
-    "mg979/vim-visual-multi",
-    -- event = "bufferAttech",
-    event = "UIEnter",
-    branch = "master",
-  },
 
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    lazy = true,
-    -- event = "BufEnter",
-    -- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-    cmd = { "RenderMarkdown" },
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
-    ---@module 'render-markdown'
-    ---@type render.md.UserConfig
-    opts = {},
-  },
+  -- {
+  --   "mg979/vim-visual-multi",
+  --   -- event = "bufferAttech",
+  --   event = "UIEnter",
+  --   branch = "master",
+  -- },
+
+  -- {
+  --   "MeanderingProgrammer/render-markdown.nvim",
+  --   lazy = true,
+  --   -- event = "BufEnter",
+  --   -- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+  --   -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+  --   cmd = { "RenderMarkdown" },
+  --   dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+  --   ---@module 'render-markdown'
+  --   ---@type render.md.UserConfig
+  --   opts = {},
+  -- },
 
   {
     "hedyhli/outline.nvim",
@@ -151,6 +177,25 @@ return {
     keys = {
       { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Git Diff view for current buffer" },
       { "<leader>gD", "<cmd>DiffviewClose<cr>", desc = "Close Git Diff view" },
+    },
+  },
+
+  -- multi cursor
+  {
+    "smoka7/multicursors.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "nvimtools/hydra.nvim",
+    },
+    opts = {},
+    cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+    keys = {
+      {
+        mode = { "v", "n" },
+        "<Leader>m",
+        "<cmd>MCstart<cr>",
+        desc = "Create a selection for selected text or word under the cursor",
+      },
     },
   },
 }

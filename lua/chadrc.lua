@@ -12,6 +12,7 @@ M.term = {
     height = 0.85,
   },
   winopts = {},
+  -- base46_colors = true,
 }
 
 M.ui = {
@@ -34,12 +35,12 @@ M.ui = {
 M.base46 = {
   theme = "gruvbox",
 
-  integrations = { "semantic_tokens", "todo" },
+  integrations = { "semantic_tokens" },
   hl_override = {
     Tabline = { bold = true },
-    -- Tabline = { bold = true },
     Normal = {
       bg = { "darker_black", 0 },
+      -- bg = { "base00", -1 },
     },
     LspInlayHint = { link = "Comment" },
 
@@ -49,6 +50,7 @@ M.base46 = {
     ["@punctuation.bracket"] = { -- works well with grovebox
       fg = "base0F", -- "base0A"
     },
+    Special = { fg = "base08" },
 
     DiffAdd = { fg = "NONE" },
     DiffDelete = { fg = "NONE" },
@@ -80,6 +82,17 @@ M.base46 = {
     DiffviewFilePanelSelected = { fg = "sun", bold = true },
     -- DiffviewDiffAdd = { fg = "NONE", bg = "NONE" },
     -- DiffviewDiffAdd = { bg = "" },
+  },
+
+  changed_themes = {
+    -- catppuccin = {
+    --   base_30 = { darker_black = "#0d0d0d", black2 = "#141414" },
+    --   base_16 = { base00 = "#000000" },
+    -- },
+    -- solarized_dark = { base_16 = {
+    --   base01 = "#03303b",
+    --   base02 = "#073642",
+    -- } },
   },
 }
 

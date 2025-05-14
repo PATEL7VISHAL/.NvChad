@@ -17,4 +17,14 @@ return {
       { "<leader>wf", "<cmd>SessionSearch<CR>", desc = "Save session for auto-session" },
     },
   },
+
+  {
+    "nvzone/typr",
+    dependencies = "nvzone/volt",
+    cmd = { "Typr", "TyprStats" },
+    opts = {
+      wpm_goal = 120,
+      stats_filepath = vim.fn.stdpath "data" .. "/config",
+    },
+  },
 }

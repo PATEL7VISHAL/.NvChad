@@ -1,5 +1,5 @@
 local M = {}
-M.opt = {
+M.opts = {
   on_attach = require("nvchad.configs.lspconfig").on_attach,
   on_init = function(_, _) end,
   capabilities = require("nvchad.configs.lspconfig").capabilities,

@@ -3,6 +3,6 @@ return {
   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
   -- event = "UIEnter",
   event = "BufEnter",
-  opt = require("configs.lsp.typescript-tool").opt,
+  opts = require("configs.lsp.typescript-tool").opts,
   config = require("configs.lsp.typescript-tool").config,
 }

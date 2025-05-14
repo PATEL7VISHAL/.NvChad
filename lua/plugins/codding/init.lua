@@ -33,6 +33,7 @@ return {
       telescope.load_extension "fzf"
     end,
   },
+
   {
     "folke/todo-comments.nvim",
     event = "BufEnter",
